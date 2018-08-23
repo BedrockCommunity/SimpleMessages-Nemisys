@@ -5,6 +5,9 @@ I'm planning add:
 
 - Much Much Placeholders.
 - Messages per Server.
+- Code performance.
+
+I promiss.
 
 I really wait for more ideas from you, guys :)
 I will implement all any ideea you have.
@@ -17,6 +20,12 @@ Tip: If config.yml it's empty *can be*, replace values from src/main/java/resour
 Probably much people are asking: What's difference of Nemisys and Nukkit?
 
 With that plugin you can broadcast messages TO ALL SERVERS NEMISYS, THE SAME MESSAGE.
+
+## Others:
+
+If anyone want to make a banner/icon for plugin, dm me on discord: ⎰lim(x->0){[lg (sinh √(-πx))]}dx#6842
+
+Forum Link: https://nukkitx.com/resources/simplemessages-nemisys.123/
 
 ## Config
 
