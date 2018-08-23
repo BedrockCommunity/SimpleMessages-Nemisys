@@ -1,12 +1,21 @@
 package nycuro;
 
+import javafx.scene.input.DataFormat;
 import nycuro.tasks.MessagesTask;
 import nycuro.utils.Settings;
 
+import org.itxtech.nemisys.math.NemisysMath;
 import org.itxtech.nemisys.plugin.PluginBase;
 import org.itxtech.nemisys.utils.Config;
+import sun.util.calendar.LocalGregorianCalendar;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -59,10 +68,17 @@ public class SimpleMessagesMain extends PluginBase {
         Settings.init(settings);
     }
 
-    public static String time(long time) {
-        int hours = (int) TimeUnit.MILLISECONDS.toHours(time);
-        int minutes = (int) TimeUnit.MILLISECONDS.toMinutes(time);
-        int seconds = (int) (TimeUnit.MILLISECONDS.toSeconds(time) - minutes * 60);
-        return String.valueOf(hours + ":" + minutes + ":" + seconds);
+    public static String time() {
+        Object timeValue = Settings.mechanic.toArray()[2];
+        String timeString = String.valueOf(timeValue);
+        TimeZone timeZone = TimeZone.getTimeZone(timeString);
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTimeZone(timeZone);
+
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        int second = calendar.get(Calendar.SECOND);
+
+        return String.valueOf(hour + ":" + minute + ":" + second);
     }
 }

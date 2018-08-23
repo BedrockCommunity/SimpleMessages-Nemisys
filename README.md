@@ -46,8 +46,22 @@ messages:
   # %server_players - max players what server can have
   # %tps_averange - Averange TPS Of Server
   # %server_uptime - Server UpTime
-  # %time - Time Now
   # & - Symbol Color
+  # -------------------- About Time -----------------
+    # %time - Time Now
+    # %year - Time Year
+    # %month - Month
+    # %hour - Hour of Day
+    # %minute - Minute
+    # %second - Second
+    # %dayOfYear - Day of Year
+    # %dayOfMonth - Day of Month
+    # %dayOfWeek - Day of Week
+    # %dayOfWeekInMonth - Day of Week in Month
+    # %weekOfMonth - Week of Month
+    # %weekOfYear - Week of Year
+    # %zoneOffset - Zone Offset
+    # %milliseconds - Millseconds
   broadcast:
   - '&7Hello players! Now is %server_online players!'
   - '&eNow is %time'
@@ -66,4 +80,7 @@ mechanic:
   # If you MessageTask to be Async.
   # If you are new with nemisys and don't know what use, use true.
   - 'true'
+  # Your Country
+  # You can find list of all here: https://hastebin.com/awixusikan.m
+  - 'Europe/Bucharest'
   ```
