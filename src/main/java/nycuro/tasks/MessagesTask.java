@@ -70,11 +70,9 @@ public class MessagesTask extends Task {
     @Override
     public void onRun(int i) {
         List<String> messages = SimpleMessagesAPI.getSettingsAPI().message.getBroadcast();
-        System.out.println("Broadcast from MessagesTask: " + messages + "\n\n");
-        System.out.println(messages.size());
         int lenght = messages.size();
         for (Player player : SimpleMessagesAPI.getMainAPI().getServer().getOnlinePlayers().values()) {
-            Integer playerTime = timers.getInt(player.getName());
+            int playerTime = timers.getInt(player.getName());
             if (playerTime <= (lenght - 1)) {
                 String message = messages.get(playerTime);
                 for (String string : Arrays.asList("%server_online", "%motd", "%tps", "%server_players", "%tps_averange", "%server_uptime", "&",
@@ -83,6 +81,7 @@ public class MessagesTask extends Task {
                 )) {
                     if (message.contains(string)) {
                         message = message.replace(string, placeHolders.get(string));
+                        message = message.replace("\"", "");
                     }
                 }
                 message = TextFormat.colorize(message);
