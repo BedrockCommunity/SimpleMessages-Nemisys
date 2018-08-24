@@ -1,22 +1,14 @@
 package nycuro;
 
-import javafx.scene.input.DataFormat;
 import nycuro.tasks.MessagesTask;
 import nycuro.utils.Settings;
+import nycuro.utils.objects.Mechanic;
 
-import org.itxtech.nemisys.math.NemisysMath;
 import org.itxtech.nemisys.plugin.PluginBase;
-import org.itxtech.nemisys.utils.Config;
-import sun.util.calendar.LocalGregorianCalendar;
 
-import java.io.File;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
-import java.util.concurrent.TimeUnit;
 
 /**
  * author: NycuRO
@@ -24,8 +16,6 @@ import java.util.concurrent.TimeUnit;
  * API 1.0.0
  */
 public class SimpleMessagesMain extends PluginBase {
-
-    public Config settings;
 
     @Override
     public void onLoad() {
@@ -48,29 +38,19 @@ public class SimpleMessagesMain extends PluginBase {
     }
 
     private void registerTasks() {
-        Object periodValue = Settings.mechanic.toArray()[0];
-        String periodString = String.valueOf(periodValue);
-        Integer period = Integer.valueOf(periodString);
-        Object asyncValue = Settings.mechanic.toArray()[1];
-        String asyncString = String.valueOf(asyncValue);
-        Boolean async = Boolean.valueOf(asyncString);
+        Mechanic mechanic = new Mechanic();
         // synapse have 100 tps, not 20 like nukkit
-        this.getServer().getScheduler().scheduleRepeatingTask(new MessagesTask(), period * 100, async);
+        this.getServer().getScheduler().scheduleRepeatingTask(new MessagesTask(), mechanic.getPeriod() * 100, mechanic.isAsync());
     }
 
     private void createConfig() {
         this.getLogger().info(String.valueOf(this.getDataFolder().mkdirs()));
-        Config settings = new Config(
-                new File(this.getDataFolder(), "config.yml"),
-                Config.YAML);
-        this.settings = settings;
-        settings.save();
-        Settings.init(settings);
+        Settings.init();
     }
 
     public static String time() {
-        Object timeValue = Settings.mechanic.toArray()[2];
-        String timeString = String.valueOf(timeValue);
+        Mechanic mechanic = new Mechanic();
+        String timeString = String.valueOf(mechanic.getCountry());
         TimeZone timeZone = TimeZone.getTimeZone(timeString);
         Calendar calendar = new GregorianCalendar();
         calendar.setTimeZone(timeZone);
