@@ -1,10 +1,5 @@
 package nycuro.tasks;
 
-import it.unimi.dsi.fastutil.objects.Object2IntMap;
-import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-
 import nycuro.SimpleMessagesAPI;
 import nycuro.utils.objects.Mechanic;
 
@@ -21,8 +16,8 @@ import java.util.*;
  */
 public class MessagesTask extends Task {
 
-    private static Object2IntMap<String> timers = new Object2IntOpenHashMap<>();
-    private static Object2ObjectMap<String, String> placeHolders = new Object2ObjectOpenHashMap<>();
+    private static Map<String, Integer> timers = new HashMap<>();
+    private static Map<String, String> placeHolders = new HashMap<>();
 
     static {
         final Mechanic mechanic = new Mechanic();
@@ -72,7 +67,7 @@ public class MessagesTask extends Task {
         List<String> messages = SimpleMessagesAPI.getSettingsAPI().message.getBroadcast();
         int lenght = messages.size();
         for (Player player : SimpleMessagesAPI.getMainAPI().getServer().getOnlinePlayers().values()) {
-            int playerTime = timers.getInt(player.getName());
+            int playerTime = timers.getOrDefault(player.getName(), 0);
             if (playerTime <= (lenght - 1)) {
                 String message = messages.get(playerTime);
                 for (String string : Arrays.asList("%server_online", "%motd", "%tps", "%server_players", "%tps_averange", "%server_uptime", "&",

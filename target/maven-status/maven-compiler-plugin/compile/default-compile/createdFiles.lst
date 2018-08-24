@@ -1,0 +1,7 @@
+nycuro\tasks\MessagesTask.class
+nycuro\SimpleMessagesAPI.class
+nycuro\utils\Settings.class
+nycuro\SimpleMessagesMain.class
+nycuro\utils\objects\Message.class
+nycuro\utils\objects\JsonObject.class
+nycuro\utils\objects\Mechanic.class
