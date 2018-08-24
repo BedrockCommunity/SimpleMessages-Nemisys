@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Mechanic {
-    private int period;
-    private boolean async;
-    private String country;
+    public int period;
+    public boolean async;
+    public String country;
 }

@@ -2,7 +2,6 @@ package nycuro;
 
 import nycuro.tasks.MessagesTask;
 import nycuro.utils.Settings;
-import nycuro.utils.objects.Mechanic;
 
 import org.itxtech.nemisys.plugin.PluginBase;
 
@@ -35,22 +34,22 @@ public class SimpleMessagesMain extends PluginBase {
 
     private void registerAPI() {
         SimpleMessagesAPI.mainAPI = this;
+        SimpleMessagesAPI.settingsAPI = new Settings();
     }
 
     private void registerTasks() {
-        Mechanic mechanic = new Mechanic();
         // synapse have 100 tps, not 20 like nukkit
-        this.getServer().getScheduler().scheduleRepeatingTask(new MessagesTask(), mechanic.getPeriod() * 100, mechanic.isAsync());
+        this.getServer().getScheduler().scheduleRepeatingTask(new MessagesTask(),
+                SimpleMessagesAPI.getSettingsAPI().mechanic.getPeriod() * 100, SimpleMessagesAPI.getSettingsAPI().mechanic.isAsync());
     }
 
     private void createConfig() {
         this.getLogger().info(String.valueOf(this.getDataFolder().mkdirs()));
-        Settings.init();
+        SimpleMessagesAPI.getSettingsAPI().init();
     }
 
-    public static String time() {
-        Mechanic mechanic = new Mechanic();
-        String timeString = String.valueOf(mechanic.getCountry());
+    public String time() {
+        String timeString = String.valueOf(SimpleMessagesAPI.getSettingsAPI().mechanic.getCountry());
         TimeZone timeZone = TimeZone.getTimeZone(timeString);
         Calendar calendar = new GregorianCalendar();
         calendar.setTimeZone(timeZone);

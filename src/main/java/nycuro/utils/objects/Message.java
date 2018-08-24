@@ -6,5 +6,5 @@ import java.util.List;
 
 @Data
 public class Message {
-    private List<String> broadcast;
+    public List<String> broadcast;
 }

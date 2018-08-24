@@ -6,9 +6,7 @@ import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 
 import nycuro.SimpleMessagesAPI;
-import nycuro.SimpleMessagesMain;
 import nycuro.utils.objects.Mechanic;
-import nycuro.utils.objects.Message;
 
 import org.itxtech.nemisys.Player;
 import org.itxtech.nemisys.scheduler.Task;
@@ -53,7 +51,7 @@ public class MessagesTask extends Task {
         placeHolders.put("%tps_averange", String.valueOf((int) SimpleMessagesAPI.getMainAPI().getServer().getTickUsageAverage()));
         placeHolders.put("%server_uptime", String.valueOf(SimpleMessagesAPI.getMainAPI().getServer().uptime));
         placeHolders.put("&", "§");
-        placeHolders.put("%time", SimpleMessagesMain.time());
+        placeHolders.put("%time", SimpleMessagesAPI.getMainAPI().time());
         placeHolders.put("%year", String.valueOf(year));
         placeHolders.put("%month", String.valueOf(month));
         placeHolders.put("%hour", String.valueOf(hour));
@@ -71,10 +69,10 @@ public class MessagesTask extends Task {
 
     @Override
     public void onRun(int i) {
-        Message configMessage = new Message();
-        //List<String> messages = configMessage.getBroadcast();
-        System.out.println(configMessage.getBroadcast().toString());
-        /*int lenght = messages.toArray().length;
+        List<String> messages = SimpleMessagesAPI.getSettingsAPI().message.getBroadcast();
+        System.out.println("Broadcast from MessagesTask: " + messages + "\n\n");
+        System.out.println(messages.size());
+        int lenght = messages.size();
         for (Player player : SimpleMessagesAPI.getMainAPI().getServer().getOnlinePlayers().values()) {
             Integer playerTime = timers.getInt(player.getName());
             if (playerTime <= (lenght - 1)) {
@@ -83,7 +81,6 @@ public class MessagesTask extends Task {
                         "%time", "%year", "%month", "%hour", "%minute", "%second", "%dayOfYear", "%dayOfMonth", "%dayOfWeek",
                         "%dayOfWeekInMonth", "%weekOfMonth", "%weekOfYear", "%zoneOffset", "%milliseconds"
                 )) {
-                    System.out.println(message);
                     if (message.contains(string)) {
                         message = message.replace(string, placeHolders.get(string));
                     }
@@ -95,6 +92,6 @@ public class MessagesTask extends Task {
                 timers.remove(player.getName());
                 timers.put(player.getName(), 0);
             }
-        }*/
+        }
     }
 }

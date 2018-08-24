@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class JsonObject {
-    private Mechanic mechanic;
-    private Message messages;
+    public Mechanic mechanic;
+    public Message messages;
 }
