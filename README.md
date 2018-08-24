@@ -12,9 +12,6 @@ I promiss.
 I really wait for more ideas from you, guys :)
 I will implement all any ideea you have.
 
-
-Tip: If config.yml it's empty *can be*, replace values from src/main/java/resources/config.yml to your config.yml.
-
 ## Questions:
 
 Probably much people are asking: What's difference of Nemisys and Nukkit?
