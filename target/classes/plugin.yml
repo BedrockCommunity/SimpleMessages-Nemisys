@@ -1,6 +1,0 @@
-name: SimpleMessages-Nemisys
-main: nycuro.SimpleMessagesMain
-version: "1.2"
-api: ["1.0.0"]
-author: NycuRO
-description: SimpleMessages for Nemisys
