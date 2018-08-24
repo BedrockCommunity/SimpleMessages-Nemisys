@@ -1,5 +1,5 @@
 # SimpleMessages-Nemisys
-This plugin is simple one. You can add custom message. Nemisys only.
+This plugin is simple one *and first nemisys plugin*. You can add custom message. Nemisys only.
 
 I'm planning add:
 

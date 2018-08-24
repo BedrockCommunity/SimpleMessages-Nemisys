@@ -5,7 +5,7 @@
     <!-- Don't use the Nukkit namespace for your own plugins -->
     <groupId>nycuro</groupId>
     <artifactId>nycuro</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <name>SimpleMessages-Nemisys</name>
     <description>Custom Messages for Nemisys</description>
 
