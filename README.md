@@ -20,7 +20,7 @@ With that plugin you can broadcast messages TO ALL SERVERS NEMISYS, THE SAME MES
 
 ## Others:
 
-If anyone want to make a banner/icon for plugin, dm me on discord: ⎰lim(x->0){[lg (sinh √(-πx))]}dx#6842
+If anyone want to make a banner/icon for plugin, dm me on discord: NycuRO#0770
 
 Forum Link: https://nukkitx.com/resources/simplemessages-nemisys.123/
 
